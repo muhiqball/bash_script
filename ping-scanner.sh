@@ -1,15 +1,14 @@
 #!/bin/bash
-# ping 
 echo " "
 echo Mengirim Ping !
 echo "Tanggal : $(date)"
 echo " "
-cat node.txt | while  read output
+cat ip.txt | while  read output
 do
-    ping -c 1 $"output" > /dev/null
+    ping -c 1 "$output" > /dev/null
     if [ $? -eq 0 ]; then
-    echo "node $output is up"
+    echo "$output is up"
     else
-    echo "node $output is down"
+    echo "$output is down"
     fi
 done
